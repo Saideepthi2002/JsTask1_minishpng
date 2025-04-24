@@ -62,8 +62,4 @@ function add_to_cart(Orgbrand1, Orgbrand2) {
     disCost();
   }, 1000);
 }
-
-setTimeout(() => {
-  add_to_cart("FabWear", "TrendyLook");
-}, 1000);
-// add_to_cart("FabWear", "TrendyLook")
+add_to_cart("FabWear", "TrendyLook")
