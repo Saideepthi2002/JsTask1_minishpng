@@ -1,15 +1,15 @@
-// JS task - Day1 
-  
-// 🛒 JavaScript Task: Mini Shopping Cart Simulation 
-//   Objective: 
-//  Write a JavaScript program that simulates adding items to a shopping cart, calculates total cost with tax, applies discount using operators, and displays the result using proper variable types and scope. 
- 
-// ✅ Requirements: 
-// 1.	Variables & Datatypes: Use let, const, and var with various data types (string, number, boolean, array, object). 
-// 2.	Scope: Show example of global scope and block/function scope. 
-// 3.	Operators: Use arithmetic, comparison, logical, assignment, and ternary operators. 
-// 4.	JavaScript Runtime: Show usage of setTimeout() or an event loop concept. 
- 
+// JS task - Day1
+
+// 🛒 JavaScript Task: Mini Shopping Cart Simulation
+//   Objective:
+//  Write a JavaScript program that simulates adding items to a shopping cart, calculates total cost with tax, applies discount using operators, and displays the result using proper variable types and scope.
+
+// ✅ Requirements:
+// 1.	Variables & Datatypes: Use let, const, and var with various data types (string, number, boolean, array, object).
+// 2.	Scope: Show example of global scope and block/function scope.
+// 3.	Operators: Use arithmetic, comparison, logical, assignment, and ternary operators.
+// 4.	JavaScript Runtime: Show usage of setTimeout() or an event loop concept.
+
 var cart = [];
 const tax = 0.07;
 // flat discount
@@ -29,19 +29,22 @@ function add_to_cart(Orgbrand1, Orgbrand2) {
     return ele.brand == Orgbrand1 || ele.brand == Orgbrand2;
   });
 
-  console.log(cart)
+  console.log(cart);
+
   let OrgCost = 0;
   let totalCost = 0;
+//   calculate original price
   OrgCost = cart.reduce((acc, ele) => {
     return (acc = acc + ele.cost);
   }, 0);
   console.log(`Original Price without any tax and discount :`, OrgCost);
 
+ // totalcost after adding the tax
   function taxCost() {
-    // totalcost along with tax
     totalCost += OrgCost * tax + OrgCost;
     console.log(`Total Cost after adding tax ${tax} :`, totalCost);
   }
+//  totalcost after addinng flat discount 
   function disCost() {
     totalCost >= 2000
       ? console.log(
@@ -53,16 +56,14 @@ function add_to_cart(Orgbrand1, Orgbrand2) {
           totalCost
         );
   }
-  setTimeout(()=>{
-    taxCost()
-    disCost()
-},1000)
+//   settime out--to display tot cost after tax and discount after 1sec
+  setTimeout(() => {
+    taxCost();
+    disCost();
+  }, 1000);
 }
 
-setTimeout(()=>{
-    add_to_cart("FabWear", "TrendyLook")
-}
-,1000)
+setTimeout(() => {
+  add_to_cart("FabWear", "TrendyLook");
+}, 1000);
 // add_to_cart("FabWear", "TrendyLook")
-
-
